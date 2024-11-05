@@ -36,3 +36,4 @@ coming soon.. ⛔
 
 1. Add ISO 639 language code support
 2. Benchmarking, ablation studies
+3. Pypi
