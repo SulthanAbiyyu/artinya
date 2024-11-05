@@ -1,0 +1,3 @@
+tabular
+openai
+python-dotenv
