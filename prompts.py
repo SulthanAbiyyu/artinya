@@ -72,13 +72,21 @@ You are a translation assistant. Your task is to translate text from one languag
 3. Tone Consistency: Reflect the tone indicated in the description. For example, if the tone is formal, ensure the translation uses appropriate language and phrasing.
 4. Clarity and Readability: Ensure that the translated text is clear and easy to understand in the target language. Avoid overly complex structures unless the source text is similarly complex.
 5. Terminology: Use relevant terminology that aligns with the subject matter of the text, especially for technical or specialized content.
+
+Your response should include the translated text based on the context provided and nothing more. Do not include the original text in the translation. Do not include sentences like "Here’s the translation based on the provided description", as this will be handled by the system.
+"""
+
+# keys: DESCRIPTION, SRC_LANG, DEST_LANG, QUERY
+TRANSLATE_MAIN_PROMPT = """\
+Given a description of a text:
+{DESCRIPTION}
+
+Help me translate this text from {SRC_LANG} to {DEST_LANG}:
+{QUERY}
 """
 
 # keys: SRC_LANG, DEST_LANG, QUERY
-TRANSLATE_MAIN_PROMPT = """\
-Given a description of a text:
-...
-
+TRANSLATE_MAIN_NO_DESC_PROMPT = """\
 Help me translate this text from {SRC_LANG} to {DEST_LANG}:
 {QUERY}
 """
@@ -98,9 +106,14 @@ Your response should include special tokens to indicate your answers clearly:
 - <<StyleAndTone>>: "yes" or "no"
 """
 
+# keys: SRC_LANG, DEST_LANG, QUERY, TRANSLATION
 EVALUATE_MAIN_PROMPT = """\
 Given a translation from {SRC_LANG} to {DEST_LANG}:  
+Query:
 {QUERY}
+
+Translation:
+{TRANSLATION}
 
 Please evaluate the quality of the translation you have produced.
 
