@@ -3,7 +3,8 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=windows,visualstudiocode,python
 
 development.ipynb
-
+*.csv
+*.txt
 ### Python ###
 # Byte-compiled / optimized / DLL files
 __pycache__/
