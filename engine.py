@@ -1,6 +1,6 @@
 import re
 import os
-from openai import OpenAI, max_retries
+from openai import OpenAI
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -96,7 +96,7 @@ class Describe:
             "cached_tokens": self.cached_tokens,
             "total_tokens": self.total_tokens,
             "total_retry_attempts": self.total_retry_attempts,
-            "average_completion_tokens": self.total_retry_attempts / len(prompts)
+            "average_retry_attempts": self.total_retry_attempts / len(prompts)
         }
         
 class TranslateEval:
@@ -239,11 +239,11 @@ class TranslateEval:
             "translation_cached_tokens": self.translation_cached_tokens,
             "translation_total_tokens": self.translation_total_tokens,
             "translation_total_retry_attempts": self.translation_total_retry_attempts,
-            "average_translation_completion_tokens": self.translation_total_retry_attempts / len(queries),
+            "average_translation_retry_attempts": self.translation_total_retry_attempts / len(queries),
             "evaluation_completion_tokens": self.eval_completion_tokens,
             "evaluation_prompt_tokens": self.eval_prompt_tokens,
             "evaluation_cached_tokens": self.eval_cached_tokens,
             "evaluation_total_tokens": self.eval_total_tokens,
             "evaluation_total_retry_attempts": self.eval_total_retry_attempts,
-            "average_evaluation_completion_tokens": self.eval_total_retry_attempts / len(queries)
+            "average_evaluation_retry_attempts": self.eval_total_retry_attempts / len(queries)
         }
