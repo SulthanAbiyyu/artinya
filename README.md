@@ -29,4 +29,10 @@ The pipeline consists of a series of steps designed to ensure accurate and conte
 - Ablation studies to understand if these whole project is actually necessary or not
 
 ## Benchmark Results
+
 coming soon.. ⛔
+
+## TODO
+
+1. Add ISO 639 language code support
+2. Benchmarking, ablation studies
